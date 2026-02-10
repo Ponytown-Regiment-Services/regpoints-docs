@@ -1,0 +1,77 @@
+---
+title: Manage your regiment
+description: Learn how to manage your regiment on RegPoints.
+draft: true
+banner:
+  content: |
+    This page is a work in progress, and may contain incomplete information. We are actively working on improving it, and we appreciate your patience and understanding.
+---
+The Manage Regiment page is where regiment owners and administrators configure core settings: 
+names, descriptions, points and patrol settings, ranks and specialties, MWD (K9) options, webhook integrations, and the Discord bot linking tools. 
+
+This guide explains each section in plain language and shows the typical tasks you can accomplish.
+
+![The Manage Regiment page, showing the different sections and options available](/imgs/manage-regiment/tab.png)
+> *The Manage Regiment page, showing the different sections and options available*
+
+---
+
+## Accessing the Manage Regiment Page
+
+:::caution[Important]
+Only regiment owners have access to the Manage Regiment page. 
+If you don't see the "Manage Regiment" option in your dashboard, 
+you may not have the necessary permissions. 
+
+Please contact your regiment owner for assistance.
+:::
+
+To access the Manage Regiment page:
+    You may need first log in to your RegPoints account and select your regiment from the dashboard.
+    
+    The "Manage Regiment" option should be visible in the sidebar menu. Click on it to open the management interface.
+
+![The "Manage Regiment" option in the dashboard sidebar menu](/imgs/manage-regiment/sidebar.png)
+> *The "Manage Regiment" option in the dashboard sidebar menu*
+
+---
+
+---
+
+## Quick Overview
+You will find the page organized into several tabs. 
+Each tab controls a different area of your regiment's configuration. 
+Changes are applied after you save the form at the bottom (or via the Save button in the floating prompt). 
+If you navigate away with unsaved changes, you'll be prompted to save or discard them.
+
+## Main Tabs
+
+<img src="/imgs/manage-regiment/manage-bar.png" alt="The Info tab of the Manage Regiment page, showing fields for regiment name, descriptions, leader name, prefix, and timezone." />
+> *The tabs of the Manage Regiment page.*
+
+The main tabs you will use are:
+
+    - [Info](#info-tab--basic-regiment-details) — Regiment name, short and long descriptions, leader name, prefix and timezone.
+    - Points/Patrols — Default points, K9 (MWD) points, min/max patrol points, server names and purge settings.
+    - Ranks — Create and edit ranks, set branch names, colors, and promotion thresholds.
+    - Specialties — Add special titles that can override a member’s rank display.
+    - MWDs — Configure Military Working Dog ranks and modifiers.
+    - Order — Fine-tune how ranks are sorted in lists and promotion pages.
+    - Discord — Webhook fields, patrol report logo, webhook footer text, and the reglink command to connect your Discord server to the bot.
+
+### Info Tab — Basic Regiment Details
+
+Use this tab to edit the core identity of your regiment. Key fields:
+
+    - Regiment Name — The full name shown on public pages and the bot.
+    - Short Description — A concise summary used on lists and previews (Twitter-length).
+    - Leader's Name — Displayed as the regiment commander.
+    - Prefix — Short tag used in some displays, typically 2–6 characters.
+    - Timezone — Choose the regiment's timezone. Dates and promotion calculations use this setting — pick the location that matches your leadership team.
+    - Promotion Week — Controls when promotions are calculated (Disabled, Odd Weeks, Even Weeks, Last Week of Month).
+    - Long Description — Use this for an in-depth regiment bio, rules, or history.
+
+:::tip
+Changing the timezone affects date-based features (promotion scheduling and logs). If your leadership spans multiple regions, choose the timezone of the group that makes time-based decisions.
+Please also note that the default Timezone is set to CET, Europe/Paris.
+:::

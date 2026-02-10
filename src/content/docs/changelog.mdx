@@ -1,0 +1,95 @@
+---
+title: Changelog
+description: See the latest updates and changes to RegPoints.
+---
+import { Badge } from '@astrojs/starlight/components';
+
+*Track the evolution of RegPoints with detailed version history and feature updates.*
+
+## Version 1.2.1 <Badge text="Work in progress" variant="caution" size='medium' />
+
+> Centered about bug fixes and minor improvements,
+>
+> As well as adding this documentation site.
+
+### Bug Fixes
+
+- Fixed a bug where highest rank on other branches than default were demoted to default, lowest rank during a promotion.
+- Fixed a bug where unlinking wasn't possible
+  - You now require to unlink from the dashboard AND to use the `/regunlink` command on the bot.
+
+---
+
+## Version 1.2 <Badge text="Current release!" variant="success" size='medium' />
+
+> Revemped feedback feature and 4th branches.
+
+### Website additions
+
+- Added A built-in [feedback](https://alpha.regpoints.fr/feedback.php) system!
+- Added 4th branch to the Rank tab.
+
+### Bot additions
+
+- Added a welcome System! Still in early works, but functional
+- Added a “ping” endpoint to check the bot status.
+- Added a “last patrol” command to display the last patrol details.
+
+### Bug Fixes
+
+- Fixed various issues related to our hosting service (we still love you Pulse 💖).
+- Fixed an issue where the bot would not respond to certain commands.
+- Fixed new webhook links not being recognized. (now accepting discord.com/api/webhook as well)
+
+---
+
+## Version 1.1.1
+
+> This is the first patch, correcting some bugs.
+
+### Bug Fixes
+
+- Fixed various issues related to **PHP versions**.
+- Fixed a bug where “retired” status was shown as “banned”.
+- Fixed user being able to have the same alias as another user.
+
+---
+## Version 1.1
+> First few addictions. Fixed all deprecated PHP functions since regpoints has been stopped.
+
+### New Features
+
+- **Added** a “ping” endpoint to check the bot status.
+- **Added** a documentation part (still a work in progress).
+
+### Bug Fixes
+
+- Fixed various issues related to **PHP versions**.
+- Fixed Emails not being sent while **Verification**.
+- Fixed **redirection bugs** from register and verification to login.
+- Fixed various issues related to **session management**.
+- Fixed an incorrect call during **time command** on the discord bot.
+- Fixed the **award.php** file not displaying properly.
+- Fixed an issue with the **nominate.php** file where the nominee was not being properly validated.
+- Added a **[Privacy Policy](https://alpha.regpoints.fr/privacypolicy.php)** and a **[Terms of Service](https://alpha.regpoints.fr/termsofservices.php)**.
+
+### Bot Changes
+
+- Added a welcome System! Still in early works, but functional.
+- Fixed an API link issue where ONE SINGLE character was missing.
+- Fixed an issue about time by default being unknown.
+
+---
+
+---
+
+# Upcoming Features (Roadmap)
+
+## Version 2.x
+
+- **Last Patrol on Regiment:** Display the last patrol infos (roster, time, hoster, etc...) directly from the Discord bot.
+- **Bulk point give from discord:** Allow bulk point allocation to members via Discord commands.
+- **Full webhook revamp:** Overhaul the existing (and broken) webhook system.
+- **Event Schedule:** Implement a schedule for upcoming events and patrols.
+- **Better Feedback:** Improve the feedback system for users to report issues and suggestions.
+- **Uniform locked behind discord login:** Restrict access to certain uniform features until the user logs in with Discord.
