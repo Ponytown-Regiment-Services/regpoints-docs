@@ -1,7 +1,6 @@
 ---
 title: Manage your regiment
 description: Learn how to manage your regiment on RegPoints.
-draft: true
 banner:
   content: |
     This page is a work in progress, and may contain incomplete information. We are actively working on improving it, and we appreciate your patience and understanding.
@@ -52,7 +51,7 @@ If you navigate away with unsaved changes, you'll be prompted to save or discard
 The main tabs you will use are:
 
     - [Info](#info-tab--basic-regiment-details) — Regiment name, short and long descriptions, leader name, prefix and timezone.
-    - Points/Patrols — Default points, K9 (MWD) points, min/max patrol points, server names and purge settings.
+    - [Points/Patrols](#pointspatrols-tab--how-points-work) — Default points, K9 (MWD) points, min/max patrol points, server names and purge settings.
     - Ranks — Create and edit ranks, set branch names, colors, and promotion thresholds.
     - Specialties — Add special titles that can override a member’s rank display.
     - MWDs — Configure Military Working Dog ranks and modifiers.
@@ -61,17 +60,71 @@ The main tabs you will use are:
 
 ### Info Tab — Basic Regiment Details
 
-Use this tab to edit the core identity of your regiment. Key fields:
+Use this tab to edit the core identity of your regiment.
 
-    - Regiment Name — The full name shown on public pages and the bot.
-    - Short Description — A concise summary used on lists and previews (Twitter-length).
-    - Leader's Name — Displayed as the regiment commander.
-    - Prefix — Short tag used in some displays, typically 2–6 characters.
-    - Timezone — Choose the regiment's timezone. Dates and promotion calculations use this setting — pick the location that matches your leadership team.
-    - Promotion Week — Controls when promotions are calculated (Disabled, Odd Weeks, Even Weeks, Last Week of Month).
-    - Long Description — Use this for an in-depth regiment bio, rules, or history.
+**Regiment Name** — The full name shown on public pages and the bot.
+ 
+**Short Description** — A concise summary used on lists and previews. 
+> Little advice to use 300 characters or less for optimality.
+
+**Leader's Name** — Displayed as the regiment commander.
+
+**Prefix** — Short tag used in some displays, typically 2–6 characters.
+> In Work In progress - WIP : `WIP` is what we call the prefix.
+
+**Timezone** — Choose the regiment's timezone. Dates and promotion calculations use this setting — pick the location that matches your leadership team.
+
+**Promotion Week** — Controls when promotions are calculated (Disabled, Odd Weeks, Even Weeks, Last Week of Month).
+
+**Long Description** — Use this for an in-depth regiment bio, rules, or history.
 
 :::tip
 Changing the timezone affects date-based features (promotion scheduling and logs). If your leadership spans multiple regions, choose the timezone of the group that makes time-based decisions.
 Please also note that the default Timezone is set to CET, Europe/Paris.
 :::
+
+#### Visual exemple
+
+![Info tab](/imgs/manage-regiment/info-tab.png)
+> *The Info tab of the Manage Regiment page, showing fields for regiment name, descriptions, leader name, prefix, and timezone.*
+
+---
+
+---
+
+### Points/Patrols Tab — How Points Work
+
+
+
+This tab controls how many points members earn and server-specific labels used in patrols.
+
+**Default Point Gain** — Base points awarded for a patrol. Patrol leaders use this as the starting value.
+
+**MWD Point Gain** — Separate base points for MWD (K9) members; can follow the default value if you enable "Same as default."
+
+**Patrol Point Min/Max** — Absolute limits members can be awarded on a patrol (prevents accidental outlier values).
+
+:::note
+Admins can override min/max patrol points when recording patrols. The purge list respects both inactivity and point thresholds — review it before bulk removals.
+:::
+
+**Point Name** — You can rename "points" to any label your group prefers (for example: XP, credits, merit).
+
+**Server Names** — Label up to 3 server slots so patrols can be tied to a specific server name.
+
+Can be use if your regiment operates in ponytown, as well as in DustTown or other games.
+
+**Purge List** — Configure how inactivity and low point totals create purge candidates: set the number of days and point threshold.
+
+:::note[Details]
+The way on how the purge list works is that members who have been inactive for over a certain number of days and have less than a specified point threshold will be placed on the purge list. You can modify those amounts in the settings on this tab.
+:::
+
+#### Visual exemple
+
+![Points/Patrols tab](/imgs/manage-regiment/points-tab.png)
+
+---
+
+---
+
