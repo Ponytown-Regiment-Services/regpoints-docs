@@ -18,6 +18,11 @@ hero:
 
 import { Card, CardGrid, Aside } from '@astrojs/starlight/components';
 import IcBaselineAccountCircle from '~icons/ic/baseline-account-circle';
+import CreditCard from '../../components/CreditCard.astro';
+import CreditGrid from '../../components/CreditGrid.astro';
+
+import lucyAvatar from '../../../public/imgs/creditsIcon/Lucy.webp';
+import kokoAvatar from '../../../public/imgs/creditsIcon/Koko.webp';
 
 <Aside type="note" title="Info">
 This documentation page is still in progress.
@@ -45,18 +50,51 @@ Regpoints is currently in an Alpha state, as the code rework has not been comple
 	<Card title="Manage your members" icon="approve-check">
 		Members can be added, removed, and edited with the dashboard and the bot.
 	</Card>
+  <Card title="Customizable point system" icon="seti:svg">
+    You can customize the point system to fit your regiment's needs.
+  </Card>
+  <Card title="Actively maintained" icon="rocket">
+    Regpoints is actively maintained by the PRS team, with regular updates and bug fixes.
+  </Card>
 </CardGrid>
 
 ## Credit
+  ### Current Team
+  <CreditGrid>
+  <CreditCard
+    name="Lucy"
+    role="Regpoints manager, and main developer since 2025."
+    image={lucyAvatar}
+    link1={{ label: "Website", url: "https://betawolfy.xyz" }}
+  />
+  <CreditCard
+    name="KokoNekoArt"
+    role="Regpoints assistant manager, and main developer since 2025."
+    image={kokoAvatar}
+    link1={{ label: "Website", url: "https://kokoneko.art/" }}
+  />
+  <CreditCard
+    name="starsour"
+    role="Helped designing the new Regpoints logo."
+    link1={{ label: "Portfolio", url: "https://example.com" }}
+  />
+  <CreditCard
+    name="Calmeloni"
+    role="Helped designing Regpoints branding."
+    link1={{ label: "Portfolio", url: "https://example.com" }}
+  />
+  </CreditGrid>
 
-**Nemm** - Creator of Regpoints, and main developer until 2023.
+  ### Previous contributors
 
-**Ponytown Regiment Services**
-  - **Lucy** - Regpoints manager, and main developer since 2025.
-  - **KokoNekoArt** - Regpoints assistant manager, and main developer since 2025.
+  <CreditGrid>
+  <CreditCard
+    name="Nemm"
+    badge="Retired"
+    role="Creator of Regpoints, and former developer until 2023."
+    link1={{ label: "Website", url: "https://example.com" }}
+  />
+  </CreditGrid>
 
-**starsour** - Helped designing the new Regpoints logo.
-
-**Calmeloni** - Helped designing Regpoints branding.
 
 *WIP: more credits will be added in the future.*

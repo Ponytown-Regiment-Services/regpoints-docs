@@ -1,0 +1,162 @@
+---
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  name: string;
+  role: string;
+  image?: ImageMetadata;
+  link1?: { label: string; url: string };
+  link2?: { label: string; url: string };
+  badge?: string;
+}
+
+const { name, role, image, link1, link2, badge } = Astro.props;
+---
+
+<div class="credit-card">
+  <div class="credit-avatar">
+    {image ? (
+      <img src={image.src} alt={name} width="80" height="80" />
+    ) : (
+      <div class="credit-avatar-placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/>
+        </svg>
+      </div>
+    )}
+  </div>
+  <div class="credit-info">
+    <div class="credit-name-row">
+      <span class="credit-name">{name}</span>
+      {badge && <span class="credit-badge">{badge}</span>}
+    </div>
+    <p class="credit-role">{role}</p>
+    <div class="credit-links">
+      {link1 && (
+        <a href={link1.url} target="_blank" rel="noopener noreferrer" class="credit-link">
+          {link1.label}
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" class="credit-link-icon">
+            <path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"/>
+          </svg>
+        </a>
+      )}
+      {link2 && (
+        <a href={link2.url} target="_blank" rel="noopener noreferrer" class="credit-link">
+          {link2.label}
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" class="credit-link-icon">
+            <path fill="currentColor" d="M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"/>
+          </svg>
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .credit-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    background: var(--sl-color-black);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .credit-card:hover {
+    border-color: var(--sl-color-gray-4);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .credit-avatar {
+    flex-shrink: 0;
+  }
+
+  .credit-avatar img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--sl-color-gray-5);
+  }
+
+  .credit-avatar-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--sl-color-gray-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sl-color-gray-3);
+    border: 2px solid var(--sl-color-gray-5);
+  }
+
+  .credit-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .credit-name-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .credit-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--sl-color-white);
+  }
+
+  .credit-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    background: var(--sl-color-accent);
+    color: var(--sl-color-accent-high);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .credit-role {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-2);
+    line-height: 1.4;
+  }
+
+  .credit-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  .credit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    color: var(--sl-color-accent-high);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.15s ease;
+  }
+
+  .credit-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  .credit-link-icon {
+    flex-shrink: 0;
+  }
+</style>

@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import Icons from 'unplugin-icons/vite'
-import starlightThemeObsidian from 'starlight-theme-obsidian'
+import starlightThemeRapide from 'starlight-theme-rapide'
 
 import vercel from '@astrojs/vercel';
 
@@ -10,12 +10,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
     integrations: [
         starlight({
-            plugins: [
-                starlightThemeObsidian({
-                   backlinks: false,
-                   graph: false
-            }),
-            ],
+            plugins: [starlightThemeRapide()],
             title: 'Regpoints Docs',
             // social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
             sidebar: [
