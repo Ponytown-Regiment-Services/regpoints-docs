@@ -5,6 +5,8 @@ banner:
   content: |
     This page is a work in progress, and may contain incomplete information. We are actively working on improving it, and we appreciate your patience and understanding.
 ---
+import { Steps, Aside} from '@astrojs/starlight/components';
+
 The Manage Regiment page is where regiment owners and administrators configure core settings: 
 names, descriptions, points and patrol settings, ranks and specialties, MWD (K9) options, webhook integrations, and the Discord bot linking tools. 
 
@@ -94,8 +96,6 @@ Please also note that the default Timezone is set to CET, Europe/Paris.
 
 ### Points/Patrols Tab — How Points Work
 
-
-
 This tab controls how many points members earn and server-specific labels used in patrols.
 
 **Default Point Gain** — Base points awarded for a patrol. Patrol leaders use this as the starting value.
@@ -112,7 +112,7 @@ Admins can override min/max patrol points when recording patrols. The purge list
 
 **Server Names** — Label up to 3 server slots so patrols can be tied to a specific server name.
 
-Can be use if your regiment operates in ponytown, as well as in DustTown or other games.
+Can be used if your regiment operates in Ponytown, as well as in DustTown or other games.
 
 **Purge List** — Configure how inactivity and low point totals create purge candidates: set the number of days and point threshold.
 
@@ -128,3 +128,110 @@ The way on how the purge list works is that members who have been inactive for o
 
 ---
 
+### Ranks & Specialties Tabs — Promotions and Titles
+
+Ranks determine promotion thresholds and the visual appearance of a member’s role. Specialties are titles that replace the rank display while still letting members earn points and promote.
+
+**Branches** — Optional groups to split ranks (e.g., Army, Navy, Air). Members in a branch will promote along that branch path.
+    
+**Rank List** — You can add, edit and reorder ranks. The first rank in the list is the default for new members.
+
+**Points Required** — Set the points a member needs to reach each rank.
+
+**Color, NCO, CO, Portal Access** — Visual and permission flags: colors appear in lists, NCO/CO markers help sorting, and portal access controls whether the rank can log into regiment tools.
+
+**Specialties** — Use when someone needs a persistent non-ranked title (e.g., "Drill Sergeant"). They do not affect point progression.
+
+#### Editing Ranks
+<Steps>
+1. Click "Add Rank" to append a new row.
+    ![Step 1 - Add Rank](/imgs/manage-regiment/steps-rank/step1.png)
+
+2. Fill in the rank name, abbreviation, branch, points required and color.
+    ![Step 2 - Fill in Rank Details](/imgs/manage-regiment/steps-rank/step2.png)
+
+3. Use the NCO/CO checkboxes for higher-level sorting or permissions.
+
+    *In my exemple, the 'Da Rank' rank is the rank after 'private'.*
+
+    ![Step 3 - NCO/CO Checkboxes](/imgs/manage-regiment/steps-rank/step3.png)
+
+    <Aside type="tip" title="note about Markers">
+    NCO and CO markers help with sorting and permissions. 
+    
+    Portal access means you will be able to invite members with that rank to the regiment's portal, so be careful when granting it to high ranks.
+    </Aside>
+
+4. Save the page to persist your changes.
+    ![Step 4 - Save Changes](/imgs/manage-regiment/steps-rank/step4.png)
+
+5. If you want to re-order, go to the 'Rank Order' tab and drag and drop ranks as needed.
+    ![Step 5 - Reorder Ranks](/imgs/manage-regiment/steps-rank/step5.png)
+</Steps>
+
+---
+
+---
+
+### MWDs Tab — Military Working Dogs (K9s)
+
+If your regiment uses MWDs (K9s), this tab lets you enable a separate rank track for them and add modifiers.
+
+**Enable MWDs** — Toggle whether MWDs are supported for new members and the enlist flow.
+    
+**K9 Ranks** — Add ranks specific to MWDs (these use the same points pool but a separate rank table).
+
+**Modifiers** — Short labels that are prefixed to a K9 rank (e.g., "ND" for Narcotics Dog).
+
+#### Visual exemple
+![MWD tab](/imgs/manage-regiment/mwd-tab.png)
+
+---
+
+---
+
+### Order Tab — Rank Sorting
+
+Use this area to adjust how ranks are displayed in lists and promotion workflows. 
+
+Drag-and-drop ordering may be available depending on your browser. 
+
+<Aside type="caution" title="Note about Rank Order">
+Adding or removing ranks will reset the custom order to defaults (lower ranks first, then higher ranks). 
+
+If you have a custom order, consider finalizing your rank list before adjusting the order.
+</Aside>
+
+#### Visual exemple
+![Order tab](/imgs/manage-regiment/order-tab.png)
+
+---
+
+---
+
+### Discord Tab — Webhooks & Bot Linking
+
+This tab contains webhook fields and the reglink command used to connect the RegPoints bot to your Discord server.
+
+**Webhook URLs** — Paste webhook URLs for patrol reports, name change notifications, and award announcements. These will send formatted messages from RegPoints into your server channels.
+    
+**Patrol Report Logo** — Upload an image used as the embed icon in patrol reports.
+    
+**Footer Text** — Small footer text appended to webhook embeds.
+    
+**Test Buttons** — There are buttons to send a sample webhook to verify formatting. Use them after you paste a webhook.
+    
+**Invite Bot** — Click the "Click To Invite Bot" button to add the RegPoints bot to your Discord server. You must have appropriate Discord permissions to invite bots.
+    
+**Reglink Command** — Copy the reglink command (a secret code) and send it in a channel where the bot can read messages to link your server. Keep this code private; anyone with it can link a server to your regiment.
+
+<Aside type="danger" title="Important Note about Reglink">
+***Never*** share the reglink code publicly. Treat it like a password: if it gets exposed, unlink the server and generate a new link token from the Manage Regiment page.
+</Aside>
+
+#### Visual exemple
+![Discord tab](/imgs/manage-regiment/discord-tab.png)
+
+---
+
+---
