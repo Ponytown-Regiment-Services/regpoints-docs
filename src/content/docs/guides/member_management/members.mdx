@@ -1,0 +1,87 @@
+---
+title: Member Management - Members
+description: Guide to manage your regiment members on RegPoints, including how to add, edit, and delete members, as well as how to manage their ranks and specialties.
+---
+
+import { Steps, Aside, Tabs, TabItem, Badge } from '@astrojs/starlight/components';
+
+## Add members
+
+Members can join your regiment in two ways: through the **Discord bot** using the `!enlist` command, or **manually** through the RegPoints web dashboard. Both methods create a member record and link it to your regiment.
+
+---
+
+### Via Discord - `/enlist`
+
+The `/enlist` command lets new recruits add themselves to your regiment directly from your Discord server. It automatically records their name, starting rank, and links their Discord account.
+
+:::tip
+Refer to the [Bot Management - Enlisting](../bot_management/enlisting) guide for detailed instructions on how to set up and use the `/enlist` command.
+:::
+
+#### How a recruit uses `/enlist`
+
+Once open, a recruit runs the command in the appropriate channel:
+
+```
+/enlist
+```
+![Example of the enlist command in Discord](/imgs/enlisting/command-enlist.png)
+
+The bot will guide them through the enlistment process interactively, asking for their in-game name and other details.
+![Example of the enlistment process in Discord](/imgs/enlisting/process-enlist.png)
+
+Upon completion:
+
+- They are added to the regiment on RegPoints.
+- Their Discord account is automatically linked to their member record.
+- If configured, they receive a role and the report channel is notified.
+
+---
+
+### Manually - Web Dashboard
+
+If you need to add a member directly (without Discord), use the **New Member** page in the RegPoints dashboard.
+
+<Steps>
+
+1. Go to the 'New Member' category on the sidebar: 
+![New Member page in RegPoints dashboard](/imgs/enlisting/new-member/000.png)
+
+2. **Enter the member's name**
+
+   Type the member's in-game name **without their rank**.
+   ![New Member form - Step 1](/imgs/enlisting/new-member/001.png)
+
+   :::note
+   Maximum 50 characters. The name must not already exist in the regiment.
+   :::
+
+3. **Select a starting rank**
+
+   Choose from the available starting ranks in the dropdown. Only ranks that are:
+   - marked as the **default rank**, or
+   - set to require **0 points**
+
+   will appear as options. MWD (K9) ranks appear separately if your regiment has MWD enabled.
+
+4. **Submit**
+
+   Click **Submit**. If successful, you'll see a confirmation link to the new member's profile.
+
+</Steps>
+
+---
+
+## Troubleshooting
+
+**Member already exists:** ⇾
+   Both methods will reject the submission if a member with that exact name already exists in your regiment. Check the member list before adding.
+
+
+**No ranks available in dropdown** ⇾
+   If the starting rank dropdown on the manual form is empty, no ranks are set as default or have 0 points. Update your rank settings in the **Manage Regiment** page under the **Ranks** tab.
+
+
+**Bot can't assign the role:** ⇾
+   The bot's own Discord role must be positioned **above** the recruit role in your server's role list. Drag it higher in **Server Settings ⇾ Roles**.
