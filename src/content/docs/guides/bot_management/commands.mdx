@@ -1,0 +1,348 @@
+---
+title: Bot Management - Commands
+description: List of all bot commands available in RegPoints, including how to use them and what they do.
+banner: |
+    content: The documentation regarding the bot commands is currently missing images.
+---
+import { Steps, Aside, Card } from '@astrojs/starlight/components';
+
+This guide lists **the Discord bot commands available** in RegPoints, what permission level they require, and what each one does.
+
+:::note
+Commands are split into three groups:
+
+- **[Bot owner commands](#bot-owner-commands)** can only be used by the person who linked the server with `!reglink`.
+- **[Staff/admin commands](#staff-admin-commands)** can only be used by members who hold a role from the admin role list.
+- **[General commands](#general-commands)** can be used by any linked member.
+
+when in a command, an mendatory argument is between `<>`, and an optional argument is between `[]`.
+:::
+
+## Bot Owner Commands
+These commands can only be used by the person **who linked the server** with `/reglink`. They allow you to manage the bot's connection to your regiment and configure admin roles.
+
+| Command | Purpose |
+| --- | --- |
+| [`/reglink`](#reglink-and-regunlink) | Link the bot to your regiment |
+| [`/regunlink`](#reglink-and-regunlink) | Unlink the bot from your regiment |
+| [`/admin add`](#admin-commands-set) | Add an admin role |
+| [`/admin remove`](#admin-commands-set) | Remove an admin role |
+| [`/admin clear`](#admin-commands-set) | Clear all admin roles |
+| [`/enlistsettings message`](#enlistsettings-commands-set) | Configure the enlistment message |
+| [`/enlistsettings reportchannel`](#enlistsettings-commands-set) | Configure the enlistment channel |
+| [`/enlistsettings role`](#enlistsettings-commands-set) | Toggle enlistment on or off |
+
+### `/reglink` and `/regunlink`
+The `/reglink` command **links the bot** to your regiment, allowing it to access and display your regiment's information.
+The `/regunlink` command **unlinks the bot** from your regiment, removing its access to your regiment's information.
+
+#### Usage
+To link your regiment, use the following command:
+```plaintext
+    /reglink <token>
+```
+
+**The token can be found on the "Regiment owner" tab, in 'Manage regiment' and then 'Discord'.**
+
+Look at [Getting Started - 4.2: Linking Your Regiment](../../getting-started/#42-linking-your-regiment) will show you how to find the token.
+
+To unlink your regiment, use the following command:
+```plaintext
+/regunlink
+```
+
+:::note
+Unlinking **does not** reset your regiment data! So if you make a mistake and accidentally unlink, you can simply link again to restore everything.
+:::
+
+---
+
+### `/admin` commands set
+For security reasons, the permission management of the bot and the dashboard are **separated**. The `/admin` command set allows you to manage the admin roles for your regiment. 
+
+The **Owner** can add or remove admins roles, which are roles that grant access to staff/admin commands.
+
+#### Usage
+To **add an admin role**, use the following command:
+```plaintext
+/admin add <role>
+```
+To **remove an admin role**, use the following command:
+```plaintext
+/admin remove <role>
+```
+To **clear all admin roles**, use the following command:
+```plaintext
+/admin clear
+```
+
+---
+
+### `/enlistsettings` commands set
+The `/enlistsettings` command set allows you to configure the enlistment process for new members. You can set a custom welcome message, choose a channel for enlistment reports, and assign a role to new recruits.
+
+#### Usage
+To configure **the welcome message**, use the following command:
+```plaintext
+/enlistsettings message <message>
+```
+To configure **the enlistment report channel**, use the following command:
+```plaintext
+/enlistsettings reportchannel <#channel>
+```
+To **add a role** that will be granted to new recruits **after successful enlistment** (*additionnaly of the starting rank role*), use the following command:
+```plaintext
+/enlistsettings role <@role>
+```
+
+For more details, look at the [Enlisting guide](../enlisting).
+
+---
+---
+
+## Staff/Admin Commands
+These commands can only be used by members who hold a role from the admin role list. They allow you to manage your regiment and its members, and access detailed information about your regiment.
+
+| Command | Purpose |
+| --- | --- |
+| [`/reginfo`](#reginfo-and-regstats) | Show regiment info and admin roles |
+| [`/link`](#link) | Link a Discord account to a regiment member |
+| [`/invite`](#invite) | Send a personalized RegPoints invite |
+| [`/discordtag`](#discordtag-and-discordid) | Show a member's Discord tag |
+| [`/discordid`](#discordtag-and-discordid) | Show a member's Discord ID |
+| [`/regstats`](#reginfo-and-regstats) | Show detailed regiment stats |
+
+### `/reginfo` and `/regstats`
+The `/reginfo` command shows basic information about your regiment, including its name, description,
+The `/regstats` command displays more detailed information about the regiment.
+
+#### Usage
+To view your regiment's information, use the following command:
+```plaintext
+/reginfo
+```
+To view your regiment's detailed stats, use the following command:
+```plaintext
+/regstats
+```
+---
+
+### `/link`
+
+:::caution
+**Owners**, don't confuse this command with the `/reglink` command!
+:::
+
+The `/link` command allows you to **link a Discord account** to a regiment member.
+To use for exemple if a member needed to make another account.
+
+#### Usage
+To link a Discord account to a regiment member, use the following command:
+```plaintext
+/link <regmember> <@discord>
+```
+---
+### `/invite`
+The `/invite` command allows you to send a personalized RegPoints invite to another staff instead of sharing the generic invite link.
+
+#### Usage
+To send a personalized RegPoints invite to another staff, use the following command:
+```plaintext
+/invite <@discord>
+```
+---
+### `/discordtag` and `/discordid`
+The `/discordtag` and `/discordid` commands allow you to view the Discord tag or ID associated with a regiment member.
+
+#### Usage
+To view a member's Discord tag, use the following command:
+```plaintext
+/discordtag <regmember>
+```
+To view a member's Discord ID, use the following command:
+```plaintext
+/discordid <regmember>
+```
+---
+
+### `/regstats`
+The `/regstats` command displays more detailed information about the regiment.
+
+#### Usage
+To view your regiment's detailed stats, use the following command:
+```plaintext
+/regstats
+```
+
+## General Commands
+These commands can be used by any linked member. They allow you to view your rank, check your progress, etc...
+
+| Command | Purpose |
+| --- | --- |
+| [`!rank`](#rank) | Show your rank information |
+| [`!status`](#status) | Show regiment status |
+| [`!progress`](#progress) | Show promotion progress |
+| [`!lastactive`](#lastactive-and-lasthosted) | Show last attended patrol |
+| [`!lasthosted`](#lastactive-and-lasthosted) | Show last hosted patrol |
+| [`!time`](#time) | Show regiment time |
+| [`!enlist`](#enlist) | Start or configure enlistment |
+| [`!pronouns`](#pronouns) | Show or set pronouns |
+| [`!leaderboard`](#leaderboard) | Show rank or group leaderboard |
+| [`!reglist`](#reglist) | Browse regiments on RegPoints |
+| [`!awards`](#awards) | Show award history |
+| [`!attended`](#attended) | Show patrol attendance count |
+
+### `/rank`
+The `/rank` command shows your current rank, or another member's rank if you mention one.
+
+#### Usage
+To view your current rank, use the following command:
+```plaintext
+/rank [regmember]
+```
+---
+### `/status`
+The `/status` command shows your status. Admins can also check another member’s status.
+
+The status can be: 
+
+<Card>
+**Active**: You are attending patrols and earning points.
+
+**Leave of Absence**: You are not attending patrols and not earning points.
+
+**Inactive**: You have not attended patrols for a while and are not earning points.
+
+**On short/semi hiatus**: You are on a short/semi hiatus and will be back soon.
+
+**On long hiatus**: You are on a long hiatus and will be back eventually.
+
+**Retired**: You have retired from the regiment and will not be attending patrols or earning points.
+</Card>
+
+#### Usage
+To view your current status, use the following command:
+```plaintext
+/status [regmember]
+```
+---
+### `/progress`
+The `/progress` command displays your progress toward the next rank by default. Admins can also check another member’s progress.
+
+#### Usage
+To view your progress toward the next rank, use the following command:
+```plaintext
+/progress [regmember]
+```
+---### `/lastactive` and `/lasthosted`
+The `/lastactive` command shows when you last attended a patrol, or when another member last attended if you have admin access.
+The `/lasthosted` command shows when you last hosted a patrol, or when another member last hosted if you have admin access.
+
+#### Usage
+To view when you last attended a patrol, use the following command:
+```plaintext
+/lastactive [regmember]
+```
+To view when you last hosted a patrol, use the following command:
+```plaintext
+/lasthosted [regmember]
+```
+---
+
+### `/time`
+The `/time` command shows the current regiment time in the timezone configured by the **Owner** in Manage Regiment.
+
+#### Usage
+To view the current regiment time, use the following command:
+```plaintext
+/time [12|24]
+```
+To view the current regiment date, use the following command:
+```plaintext
+/date
+```
+---
+
+### `/enlist`
+The `/enlist` command allows you to start the enlistment process when you just arrived in the regiment.
+
+#### Usage
+To start the enlistment process, use the following command:
+```plaintext
+/enlist
+```
+
+### `/pronouns`
+The `/pronouns` command allows you to view or set your pronouns, or view another member's pronouns if you mention one.
+
+#### Usage
+To view your current pronouns, use the following command:
+```plaintext
+/pronouns [regmember]
+```
+To set your pronouns, use the following command:
+```plaintext
+/pronouns set <pronouns>
+```
+
+### `/leaderboard`
+The `/leaderboard` command displays the leaderboard for active members of your current rank, a specific rank, or a defined group.
+
+#### Usage
+To view the leaderboard for active members of your current rank, use the following command:
+```plaintext
+/leaderboard
+```
+To view the leaderboard for a specific rank, use the following command:
+```plaintext
+/leaderboard [rank name or abbreviation]
+```
+To view the leaderboard for a specific group, use the following command:
+```plaintext
+/leaderboard [nco/co/staff]
+```
+---
+
+### `/reglist`
+The `/reglist` command shows a list of regiments on RegPoints or details about a specific regiment. You can search by ranking number or regiment name.
+
+#### Usage
+To view a list of regiments on RegPoints, use the following command:
+```plaintext
+/reglist
+```
+To view details about a specific regiment by its ranking number, use the following command:
+```plaintext
+/reglist [number]
+```
+To view details about a specific regiment by its name, use the following command:
+```plaintext
+/reglist [regiment name]
+```
+
+### `/awards`
+The `/awards` command displays a list of awards you have earned, another member’s awards, or detailed information about a specific award.
+
+#### Usage
+To view a list of awards you have earned, use the following command:
+```plaintext
+/awards [regmember]
+```
+To view detailed information about a specific award, use the following command:
+```plaintext
+/awards [award_number]
+```
+To view detailed information about a member's awards, use the following command:
+```plaintext
+/awards [name]
+```
+--- 
+
+### `/attended`
+The `/attended` command shows the number of patrols you have attended, or another member’s attendance count if you have admin access.
+
+#### Usage
+To view the number of patrols you have attended, use the following command:
+```plaintext
+/attended [regmember]
+```
