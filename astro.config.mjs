@@ -24,6 +24,7 @@ export default defineConfig({
                             label: 'Bot Management',
                             collapsed: true,
                             items: [
+                                { label: 'Commands', slug: 'guides/bot_management/commands' },
                                 { label: 'Enlistment', slug: 'guides/bot_management/enlisting' },
                             ],
                         },
@@ -31,10 +32,11 @@ export default defineConfig({
                             label: 'Member Management', 
                             collapsed: true,
                             items: [
+                                { label: 'Members', slug: 'guides/member_management/members' },
                                 { label: 'Aliases', slug: 'guides/member_management/aliases' },
                                 { label: 'Staff', slug: 'guides/member_management/staff' },
                             ],
-                         },
+                        },
                     ],
                 },
                 /*{
