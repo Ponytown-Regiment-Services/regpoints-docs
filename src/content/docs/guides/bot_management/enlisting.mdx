@@ -1,0 +1,71 @@
+---
+title: Bot Management - Enlisting
+description: Guide to manage the enlistment process for your regiment on RegPoints.
+---
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+
+
+The `/enlist` command lets new recruits add themselves to your regiment directly from your Discord server. It automatically records their name, starting rank, and links their Discord account.
+
+:::note
+The enlist command is **closed by default**. A staff member or the bot owner must open it before recruits can use it.
+:::
+
+<Steps>
+
+1. **Set a welcome message**
+
+   Customize the message shown when a recruit finishes to enlist:
+
+   ```
+   /enlistsettings welcome [your message here]
+   ```
+
+2. **Assign a report channel**
+
+   Set a channel where the bot will post a report each time someone enlists:
+
+   ```
+   /enlistsettings reportchannel #channel-name
+   ```
+
+3. **Assign an auto-role**
+
+   Give new recruits a role automatically upon enlistment:
+
+   ```
+   /enlistsettings role @RoleName
+   ```
+
+   :::caution
+   The bot's role **must be ranked higher** than the role you want to assign, otherwise Discord will block the action.
+   :::
+
+4. **check if everything is set up correctly**
+
+   Run the following command to see your current enlistment settings:
+
+   ```
+   /enlistsettings info
+   ``` 
+
+5. **Open enlistment**
+
+   Run the following command in your Discord server to allow members to use `/enlist`:
+
+   ```
+   /enlistsettings open
+   ```
+
+   To disable it again at any time:
+
+   ```
+   /enlistsettings close
+   ```
+
+</Steps>
+
+<Aside type="caution" title="Important">
+Only the ***Owner*** of the regiment can manage the steps 1, 2 and 3. Admins can open and close enlistment, but they cannot change the welcome message, report channel or auto-role.
+</Aside>

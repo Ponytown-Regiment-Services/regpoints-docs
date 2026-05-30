@@ -20,6 +20,13 @@ export default defineConfig({
                         { label: 'Introduction', slug: 'guides/introduction' },
                         { label: 'Getting Started', slug: 'guides/getting-started' },
                         { label: 'Manage Regiment', slug: 'guides/manage-regiment' },
+                        {
+                            label: 'Bot Management',
+                            collapsed: true,
+                            items: [
+                                { label: 'Enlistment', slug: 'guides/bot_management/enlisting' },
+                            ],
+                        },
                         { 
                             label: 'Member Management', 
                             collapsed: true,
