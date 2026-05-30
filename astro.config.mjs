@@ -20,12 +20,21 @@ export default defineConfig({
                         { label: 'Introduction', slug: 'guides/introduction' },
                         { label: 'Getting Started', slug: 'guides/getting-started' },
                         { label: 'Manage Regiment', slug: 'guides/manage-regiment' },
+                        { 
+                            label: 'Member Management', 
+                            collapsed: true,
+                            items: [
+                                { label: 'Aliases', slug: 'guides/member_management/aliases' },
+                                { label: 'Staff', slug: 'guides/member_management/staff' },
+                            ],
+                         },
                     ],
                 },
-                {
+                /*{
                     label: 'Reference',
                     autogenerate: { directory: 'reference' },
                 },
+                */
                 {
                     label: 'Others',
                     items: [
