@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightBlog from 'starlight-blog'
 import Icons from 'unplugin-icons/vite'
 import starlightThemeRapide from 'starlight-theme-rapide'
 
@@ -10,7 +11,18 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
     integrations: [
         starlight({
-            plugins: [starlightThemeRapide()],
+            plugins: [
+                starlightThemeRapide(),
+                starlightBlog({
+                    authors: {
+                        regpointsDevTeam: {
+                            name: 'Regpoints Dev Team',
+                            title: 'Your local developer team',
+                            picture: 'https://cdn.discordapp.com/avatars/1301842493238808661/5ee37ac3c75edad335e2ebb49f9edee6.webp?size=1024',
+                            url: 'https://regpoints.fr',
+                        },
+                    },
+                })],
             title: 'Regpoints Docs',
             // social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
             sidebar: [
@@ -28,8 +40,8 @@ export default defineConfig({
                                 { label: 'Enlistment', slug: 'guides/bot_management/enlisting' },
                             ],
                         },
-                        { 
-                            label: 'Member Management', 
+                        {
+                            label: 'Member Management',
                             collapsed: true,
                             items: [
                                 { label: 'Members', slug: 'guides/member_management/members' },
@@ -37,6 +49,7 @@ export default defineConfig({
                                 { label: 'Staff', slug: 'guides/member_management/staff' },
                             ],
                         },
+                        { label: 'Points', slug: 'guides/points' },
                     ],
                 },
                 /*{
@@ -48,8 +61,13 @@ export default defineConfig({
                     label: 'Others',
                     items: [
                         { label: 'Changelog', slug: 'changelog' },
+
                     ],
-                }
+                },
+                {
+                    label: 'Blog',
+                    link: '/blog'
+                },
             ],
         }),
     ],
