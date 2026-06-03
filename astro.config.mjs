@@ -11,6 +11,9 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
     integrations: [
         starlight({
+            logo: {
+                src: './src/assets/logo.svg',
+            },
             plugins: [
                 starlightThemeRapide(),
                 starlightBlog({
@@ -22,7 +25,8 @@ export default defineConfig({
                             url: 'https://regpoints.fr',
                         },
                     },
-                })],
+                })
+            ],
             title: 'Regpoints Docs',
             // social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
             sidebar: [
