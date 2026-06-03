@@ -54,6 +54,7 @@ export default defineConfig({
                             ],
                         },
                         { label: 'Points', slug: 'guides/points' },
+                        { label: 'Economy', slug: 'guides/economy' }
                     ],
                 },
                 /*{

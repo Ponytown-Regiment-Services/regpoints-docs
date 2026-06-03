@@ -1,0 +1,49 @@
+---
+title: Economy
+description: All informations on our economy system, how it works, and how to use it.
+banner:
+    content: |
+        This page explains something that isn't released yet.
+
+        This module is still incomplete and in development.
+        Even tho money can be given and taken, there are no shop yet.
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+This page explains how our economy system works, how to give and take money, and how to use it.
+
+## Setup
+
+### Enable Economy
+Economy is disabled by default, to enable it:
+
+<Steps>
+    1. Go to the 'Regiment Owner' category on the sidebar, then click the 'Manage Regiment' tab:
+        ![Manage Economy page in RegPoints dashboard](/imgs/manage-economy/000.png)
+    2. On the 'Patrols and points' section, click the 'Enable Economy' button:
+        ![Enable Economy button in RegPoints dashboard](/imgs/manage-economy/001.png)
+</Steps>
+
+ ### Already using Economy with another bot?
+ If you were already using economy with another bot, you can import your users' balance to RegPoints.
+
+<Steps>
+    1. Go to the 'Regiment Owner' category on the sidebar, then click the 'Manage Economy' tab:
+        ![Manage Economy page in RegPoints dashboard](/imgs/manage-economy/import-000.png)
+    2. On the 'Patrols and points' section, click the 'Import Economy' button:
+        ![Import Economy button in RegPoints dashboard](/imgs/manage-economy/import-001.png)
+    3. Done! Magic! :D
+</Steps>
+
+## Commands
+
+| Command | Purpose | Permissions Required |
+| --- | --- | --- |
+| `/economy enable` | Enable the economy system. | Owner |
+| `/economy disable` | Disable the economy system. | Owner |
+| `/add-money @user amount` | Give money to a user. | Admin |
+| `/remove-money @user amount` | Take money from a user. | Admin |
+| `/economy symbol emoji/symbol` | Set the economy symbol. | Admin |
+| `/give-money @user amount` | Give money to a user, and take the same amount from you. | User |
+| `/balance` | Check your balance. | User |
