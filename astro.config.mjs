@@ -17,6 +17,7 @@ export default defineConfig({
             plugins: [
                 starlightThemeRapide(),
                 starlightBlog({
+                    title: 'Regpoints Blog',
                     authors: {
                         regpointsDevTeam: {
                             name: 'Regpoints Dev Team',
@@ -24,6 +25,12 @@ export default defineConfig({
                             picture: 'https://cdn.discordapp.com/avatars/1301842493238808661/5ee37ac3c75edad335e2ebb49f9edee6.webp?size=1024',
                             url: 'https://regpoints.fr',
                         },
+                    },
+                    postCount: 5,
+                    recentPostCount: 3,
+                    metrics: {
+                        readingTime: true,
+                        words: 'total',
                     },
                 })
             ],
