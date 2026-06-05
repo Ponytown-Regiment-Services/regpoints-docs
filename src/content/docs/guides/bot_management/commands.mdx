@@ -3,7 +3,9 @@ title: Bot Management - Commands
 description: List of all bot commands available in RegPoints, including how to use them and what they do.
 banner:
     content: |
-      The documentation regarding the bot commands is currently missing images.
+        This page contains commands that are not released yet, and may be subject to change.
+        <br>
+        The documentation regarding the bot commands is currently missing images.
 ---
 import { Steps, Aside, Card } from '@astrojs/starlight/components';
 
@@ -32,6 +34,8 @@ These commands can only be used by the person **who linked the server** with `/r
 | [`/enlistsettings message`](#enlistsettings-commands-set) | Configure the enlistment message |
 | [`/enlistsettings reportchannel`](#enlistsettings-commands-set) | Configure the enlistment channel |
 | [`/enlistsettings role`](#enlistsettings-commands-set) | Toggle enlistment on or off |
+| [`/economy enable`](#economy-commands-set) | Enable the economy system. |
+| [`/economy disable`](#economy-commands-set) | Disable the economy system. |
 
 ### `/reglink` and `/regunlink`
 The `/reglink` command **links the bot** to your regiment, allowing it to access and display your regiment's information.
@@ -39,7 +43,7 @@ The `/regunlink` command **unlinks the bot** from your regiment, removing its ac
 
 #### Usage
 To link your regiment, use the following command:
-```plaintext
+```txt
     /reglink <token>
 ```
 
@@ -48,7 +52,7 @@ To link your regiment, use the following command:
 Look at [Getting Started - 4.2: Linking Your Regiment](../../getting-started/#42-linking-your-regiment) will show you how to find the token.
 
 To unlink your regiment, use the following command:
-```plaintext
+```txt
 /regunlink
 ```
 
@@ -65,15 +69,15 @@ The **Owner** can add or remove admins roles, which are roles that grant access 
 
 #### Usage
 To **add an admin role**, use the following command:
-```plaintext
+```txt
 /admin add <role>
 ```
 To **remove an admin role**, use the following command:
-```plaintext
+```txt
 /admin remove <role>
 ```
 To **clear all admin roles**, use the following command:
-```plaintext
+```txt
 /admin clear
 ```
 
@@ -84,19 +88,32 @@ The `/enlistsettings` command set allows you to configure the enlistment process
 
 #### Usage
 To configure **the welcome message**, use the following command:
-```plaintext
+```txt
 /enlistsettings message <message>
 ```
 To configure **the enlistment report channel**, use the following command:
-```plaintext
+```txt
 /enlistsettings reportchannel <#channel>
 ```
 To **add a role** that will be granted to new recruits **after successful enlistment** (*additionnaly of the starting rank role*), use the following command:
-```plaintext
+```txt
 /enlistsettings role <@role>
 ```
 
 For more details, look at the [Enlisting guide](../enlisting).
+
+### Economy commands set
+The `/economy` command set allows you to enable or disable the economy system for your regiment, without having to go through the dashboard.
+
+#### Usage
+To enable the economy system, use the following command:
+```txt
+/economy enable
+```
+To disable the economy system, use the following command:
+```txt
+/economy disable
+```
 
 ---
 ---
@@ -112,6 +129,9 @@ These commands can only be used by members who hold a role from the admin role l
 | [`/discordtag`](#discordtag-and-discordid) | Show a member's Discord tag |
 | [`/discordid`](#discordtag-and-discordid) | Show a member's Discord ID |
 | [`/regstats`](#reginfo-and-regstats) | Show detailed regiment stats |
+| [`/add-money`](#economy-commands) | Give money to a user. |
+| [`/remove-money`](#economy-commands) | Take money from a user. |
+| [`/economy symbol`](#economy-commands) | Set the economy symbol. |
 
 ### `/reginfo` and `/regstats`
 The `/reginfo` command shows basic information about your regiment, including its name, description,
@@ -119,11 +139,11 @@ The `/regstats` command displays more detailed information about the regiment.
 
 #### Usage
 To view your regiment's information, use the following command:
-```plaintext
+```txt
 /reginfo
 ```
 To view your regiment's detailed stats, use the following command:
-```plaintext
+```txt
 /regstats
 ```
 ---
@@ -139,7 +159,7 @@ To use for exemple if a member needed to make another account.
 
 #### Usage
 To link a Discord account to a regiment member, use the following command:
-```plaintext
+```txt
 /link <regmember> <@discord>
 ```
 ---
@@ -148,7 +168,7 @@ The `/invite` command allows you to send a personalized RegPoints invite to anot
 
 #### Usage
 To send a personalized RegPoints invite to another staff, use the following command:
-```plaintext
+```txt
 /invite <@discord>
 ```
 ---
@@ -157,11 +177,11 @@ The `/discordtag` and `/discordid` commands allow you to view the Discord tag or
 
 #### Usage
 To view a member's Discord tag, use the following command:
-```plaintext
+```txt
 /discordtag <regmember>
 ```
 To view a member's Discord ID, use the following command:
-```plaintext
+```txt
 /discordid <regmember>
 ```
 ---
@@ -171,9 +191,36 @@ The `/regstats` command displays more detailed information about the regiment.
 
 #### Usage
 To view your regiment's detailed stats, use the following command:
-```plaintext
+```txt
 /regstats
 ```
+
+### Economy commands
+The economy commands allow you to manage the economy system for your regiment directly from Discord.
+The `/add-money` and `/remove-money` commands allow you to give or take money from a user, while the `/economy symbol` command allows you to set the economy symbol.
+
+#### Usage
+To give money to a user, use the following command:
+```txt
+/add-money @user amount
+```
+To take money from a user, use the following command:
+```txt/remove-money @user amount
+```
+To set the economy symbol, use the following command:
+```txt
+/economy symbol <emoji/symbol>
+```
+
+:::note
+The symbol must be an one emoji or one character symbol.
+
+You can also use a custom Disord emoji by typing the emoji name between colons, like this: `:emoji_name:`.
+:::
+
+---
+
+---
 
 ## General Commands
 These commands can be used by any linked member. They allow you to view your rank, check your progress, etc...
@@ -192,13 +239,15 @@ These commands can be used by any linked member. They allow you to view your ran
 | [`/reglist`](#reglist) | Browse regiments on RegPoints |
 | [`/awards`](#awards) | Show award history |
 | [`/attended`](#attended) | Show patrol attendance count |
+| [`/give-money`](#economy-user-commands) | Give money to a user, and take the same amount from you. |
+| [`/balance`](#economy-user-commands) | Check your balance. |
 
 ### `/rank`
 The `/rank` command shows your current rank, or another member's rank if you mention one.
 
 #### Usage
 To view your current rank, use the following command:
-```plaintext
+```txt
 /rank [regmember]
 ```
 ---
@@ -223,7 +272,7 @@ The status can be:
 
 #### Usage
 To view your current status, use the following command:
-```plaintext
+```txt
 /status [regmember]
 ```
 ---
@@ -232,7 +281,7 @@ The `/progress` command displays your progress toward the next rank by default. 
 
 #### Usage
 To view your progress toward the next rank, use the following command:
-```plaintext
+```txt
 /progress [regmember]
 ```
 ---### `/lastactive` and `/lasthosted`
@@ -241,11 +290,11 @@ The `/lasthosted` command shows when you last hosted a patrol, or when another m
 
 #### Usage
 To view when you last attended a patrol, use the following command:
-```plaintext
+```txt
 /lastactive [regmember]
 ```
 To view when you last hosted a patrol, use the following command:
-```plaintext
+```txt
 /lasthosted [regmember]
 ```
 ---
@@ -255,11 +304,11 @@ The `/time` command shows the current regiment time in the timezone configured b
 
 #### Usage
 To view the current regiment time, use the following command:
-```plaintext
+```txt
 /time [12|24]
 ```
 To view the current regiment date, use the following command:
-```plaintext
+```txt
 /date
 ```
 ---
@@ -269,7 +318,7 @@ The `/enlist` command allows you to start the enlistment process when you just a
 
 #### Usage
 To start the enlistment process, use the following command:
-```plaintext
+```txt
 /enlist
 ```
 
@@ -278,11 +327,11 @@ The `/pronouns` command allows you to view or set your pronouns, or view another
 
 #### Usage
 To view your current pronouns, use the following command:
-```plaintext
+```txt
 /pronouns [regmember]
 ```
 To set your pronouns, use the following command:
-```plaintext
+```txt
 /pronouns set <pronouns>
 ```
 
@@ -291,15 +340,15 @@ The `/leaderboard` command displays the leaderboard for active members of your c
 
 #### Usage
 To view the leaderboard for active members of your current rank, use the following command:
-```plaintext
+```txt
 /leaderboard
 ```
 To view the leaderboard for a specific rank, use the following command:
-```plaintext
+```txt
 /leaderboard [rank name or abbreviation]
 ```
 To view the leaderboard for a specific group, use the following command:
-```plaintext
+```txt
 /leaderboard [nco/co/staff]
 ```
 ---
@@ -309,15 +358,15 @@ The `/reglist` command shows a list of regiments on RegPoints or details about a
 
 #### Usage
 To view a list of regiments on RegPoints, use the following command:
-```plaintext
+```txt
 /reglist
 ```
 To view details about a specific regiment by its ranking number, use the following command:
-```plaintext
+```txt
 /reglist [number]
 ```
 To view details about a specific regiment by its name, use the following command:
-```plaintext
+```txt
 /reglist [regiment name]
 ```
 
@@ -326,15 +375,15 @@ The `/awards` command displays a list of awards you have earned, another memberâ
 
 #### Usage
 To view a list of awards you have earned, use the following command:
-```plaintext
+```txt
 /awards [regmember]
 ```
 To view detailed information about a specific award, use the following command:
-```plaintext
+```txt
 /awards [award_number]
 ```
 To view detailed information about a member's awards, use the following command:
-```plaintext
+```txt
 /awards [name]
 ```
 --- 
@@ -344,6 +393,21 @@ The `/attended` command shows the number of patrols you have attended, or anothe
 
 #### Usage
 To view the number of patrols you have attended, use the following command:
-```plaintext
+```txt
 /attended [regmember]
+```
+
+### Economy user commands
+The economy user commands allow users to keep track of their balance and give money to other users.
+
+The `/give-money` command allows you to give money to another user, while taking the same amount from you. The `/balance` command allows you to check your current balance.
+
+#### Usage
+To give money to another user, use the following command:
+```txt
+/give-money @user amount
+```
+To check your current balance, use the following command:
+```txt
+/balance
 ```
