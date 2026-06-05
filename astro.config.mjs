@@ -64,21 +64,12 @@ export default defineConfig({
                         { label: 'Economy', slug: 'guides/economy' }
                     ],
                 },
-                /*{
-                    label: 'Reference',
-                    autogenerate: { directory: 'reference' },
-                },
-                */
                 {
-                    label: 'Others',
+                    label: 'Behind the Scenes',
                     items: [
-                        { label: 'Changelog', slug: 'changelog' },
-
+                        {label: 'Changelog', link: '/changelogs'},
+                        {label: 'Blog', link: '/blog'},
                     ],
-                },
-                {
-                    label: 'Blog',
-                    link: '/blog'
                 },
             ],
         }),

@@ -1,0 +1,50 @@
+---
+title: Changelogs
+description: See the latest updates and changes to RegPoints.
+---
+import { Badge, LinkCard, Code } from '@astrojs/starlight/components';
+
+export const wikiBnuyArt = 
+`
+   (\\ /)      Wiki Bnuy:
+   ( o o)      | I won't spoil but
+ c((")("))     | Something is coming soon...
+
+`
+export const wikiBnuyFileName = 'wiki.bnuy';
+export const wikiBnuyHighlights = ['Something is coming soon'];
+
+export const skyArt = `
+.    o        .._           +            |            .                       
+            .' .-'\`                     -+-      .                      |  '  
+ *         /  /                          |                      . .    -+-    
+           |  |             |         .                                 |     
+           \\  \\            -+-  |                  *      . .                '
+        o   '._'-._   *     |  -+-                                   .        
+* +            \`\`\`              |      . . '                            .     
+`
+export const skyFileName = 'sky.txt';
+
+<Code code={wikiBnuyArt} lang="txt" title={wikiBnuyFileName} mark={wikiBnuyHighlights} />
+
+You can track the evolution of RegPoints with detailed version history and feature updates.
+
+## Latest Version
+
+<LinkCard
+    title='Version 1.2 (and 1.2.1)'
+    description='Revemped feedback feature and 4th branches.'
+    href='/changelogs/1_2'
+/>
+
+## Previous Versions
+
+<LinkCard
+    title='Version 1.1'
+    description='Initial release with basic features.'
+    href='/changelogs/1_1'
+/>
+
+---
+
+<Code code={skyArt} lang="txt" title={skyFileName} />
