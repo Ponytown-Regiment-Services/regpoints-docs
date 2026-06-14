@@ -141,6 +141,8 @@ Please review your records to ensure data is correct.
 - Fixed /attended, /lastactive, /time, and /regstats from an interaction failed fall back.
 - Fixed /patrol new, command would partly execute before quietly failing the interaction.
 - Fixed /progress showing percentages to other branches.
+- Fixed a bug where view/edit member links failed on members with spaces or special characters. All view/edit member links now force the name to a URL format. This applies to member list, purge members, and now discord list.
+- Fixed a bug where edit patrol date and time were current time and not the submitted time.
 
 ### Bot Commands
 
