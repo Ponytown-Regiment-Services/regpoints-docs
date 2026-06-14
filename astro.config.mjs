@@ -35,6 +35,7 @@ export default defineConfig({
                 })
             ],
             title: 'Regpoints Docs',
+            customCss: ['./src/styles/custom.css'],
             // social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
             sidebar: [
                 {
@@ -67,8 +68,8 @@ export default defineConfig({
                 {
                     label: 'Behind the Scenes',
                     items: [
-                        {label: 'Changelog', link: '/changelogs'},
-                        {label: 'Blog', link: '/blog'},
+                        { label: 'Changelog', link: '/changelogs' },
+                        { label: 'Blog', link: '/blog' },
                     ],
                 },
             ],

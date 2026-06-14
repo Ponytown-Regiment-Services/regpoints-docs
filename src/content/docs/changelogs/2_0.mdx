@@ -1,0 +1,172 @@
+---
+title: Changelog 2.0
+description: See the latest updates and changes to RegPoints in version 2.0
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 4
+
+---
+
+import { Badge, Code } from "@astrojs/starlight/components";
+
+export const wikiBnuyArt = 
+`
+   (\\ /)      Wiki Bnuy:
+   ( ^ ^)      | This is only part one of the update,
+ c((")("))     | Part two is coming soon with more features and improvements!
+`
+export const wikiBnuyFileName = 'wiki.bnuy';
+export const wikiBnuyHighlights = ['Part two is coming soon with more features and improvements!'];
+
+<Code code={wikiBnuyArt} lang="txt" title={wikiBnuyFileName} />
+
+## Version 2.0
+
+<Badge text="Latest version" variant="success" />
+
+> First big and major update since the revival of Regpoints.
+
+### MAJOR
+
+#### We are now out of ALPHA and in full public release. 
+Anyone can create any number of regiments, as long as they have **a verified account**. Regiment deletion is done on an on-request basis. We are no longer on a subdomain, and a redirect is now in place.
+    - Manage Invites & Access tab renamed to Manage Access. Removed the Regiment Invite tab.
+
+---
+
+#### Switched to a better hosting environment.
+
+We now have our own machine where we run our own website. We aren't dependent of a hosting provider's limitations, and we can now implement features that were previously impossible due to those limitations.
+
+- added a reCAPTCHA to the dashboard, and improved security of sensitive tokens.
+- Access/Error logs no longer track IP Addresses. 
+- Improved email deliverability. 
+- Session times are increased. (20 minutes -> 4 hours)
+- regiments with a large amount of ranks can now modify more settings.
+
+---
+
+#### There has been a major change to the database structure both on the dashboard and with the bot.
+  - Previously, admin settings were segregated to regiments. 
+    - They are now in one global database, so adding features will be a lot easier. (applied early for ease of management)
+  - Enlist settings role can now be a list of roles given to the enlisted. 
+    - Additionally, roles are now separated between Regular and K9 roles. 
+    - By default, your current data should merge into the Regular role list upon running /enlistsettings info. Please revisit these settings to ensure they are to your satisfaction.
+- Added Co-Owner permissions (see Manage Regiment tab, released early for ease of management). As for bot commands, those still require the Regiment Owner to run those.
+- New documentation is now maintained and linked.
+
+---
+
+#### Added the possibility of Economy. 
+:::note
+This will be Economy Phase 1 of implementation. Keep an eye on our changelogs for upcoming minor updates. By default, this feature is disabled to maintain staff control over money earnings.
+:::
+  - New money-related fields on the Manage Regiment > Points and Patrols tab. 
+    - Functions similar to points. 
+    - Money can be added via New Patrols or bot commands. 
+    - /patrol new has money as optional, default is 0.
+  - A new Manage Economy tab will appear if you enable your economy. 
+    - Currently, there is an Import tab where you can import existing Unbelievaboat data into RegPoints. 
+    - In the future, this page will be for all your economy settings.
+  - Economy data is only created on an as-needed basis. 
+    - If you never enable your economy, those tables will cease to exist.
+  - Enabling/disabling economy is done either through the bot or through the portal. 
+    - Find these settings on Manage Regiment > Points and Patrols tab or run /economy enable/disable.
+  - The money symbol is set through the bot via /economy symbol. 
+    - By default, it will be 🪙.
+  - Added /add-money, /remove-money, /balance, and /give-money to start.    
+    - More economy commands will be implemented in Phase 2 of Economy.
+
+---
+
+#### Other major new features and changes:
+
+- Status changes now have the possibility to be announced in a webhook log. 
+    - Additionally, on the Manage Regiment > Discord tab, there is a checkbox enable to allow/disallow users to run break/hiatus commands themselves. 
+    - By default, this feature is disabled to maintain staff control over said status changes. 
+    - Please review the Discord tab in your Manage Regiment settings.
+
+- Statuses have been renamed:
+    - Active, 
+    - Hiatus, 
+    - Inactive, 
+    - Break, 
+    - Kicked, 
+    - Retired, 
+    - Under Investigation, 
+    - Banned.
+:::caution
+Please review your records to ensure data is correct.
+:::
+
+- On the members page, every status has a filter in addition to showing/hiding unlinked members.
+    - Filters are now in a dropdown menu and will save upon logout.
+    - Patrol filters are also saved on logout.
+- Aliases will now also be logged in name changes, in addition to being able to add/remove via staff-only command. 
+    - This should allow for ease in additional name claims.
+    - Primary aliases can now toggle between set/unset.
+
+### MINOR
+
+- Optional Discord ID field on manual new member form.
+- On Edit Member, branch is now a dropdown, which will act as a live filter for the Rank/K9 Ranks to only show the current branch's ranks. **No more long lists!**
+- Updated symbols on the dashboard to be Font Awesome. 
+    - Any remaining emojis will turn into Discord-styled emojis.
+- In Manage Regiment > Info, added custom patrol name and patrol note instructions for new patrols.
+- Added Account/Login issues as a feedback/contact request.
+- Added /hosted as an alternative to /attended so hosts can see how much they hosted.
+- Added /add-points and /remove-points similar to how add/remove money works.
+- Added /member-info to return all information about a given member.
+    - Staff running this command will show the linked Discord ID of the member.
+- /enlist will also now update the server nickname to be `Rank. Name.`
+    - Please ensure RegPoint's bot role or your server's bot role is above the enlisted roles at minimum.
+- Added /roll, similar to PonyTown for RTS Combat.
+    - Defaults to a roll of 1-100, can be customized with DnD styled dice notation. (ex: /roll 2d6+3)
+- Added /support for a quick invite link into our support server and feedback page.
+- Added /documentation for a quick link to the documentation.
+- Added /checkname which will validate if a name or alias is currently in use by an active member. 
+    - Also flags potential available names (in use by non-active members).
+- Changed command descriptions of all staff / owner commands are labelled as (Staff Only) or (Owner Only) for consistency.
+
+### Bugs
+
+- Fixed a bug where the rank/specialty would be incorrect for name changes.
+    - Now accounts for rank + name changes.
+- Fixed aliases not showing special characters.
+- Fixed members with specialties receiving the wrong rankwithname upon promotion from the Promotions tab.
+- Fixed the styling of notes so they don't go farther than screen width or be condensed to one line with no paragraph breaks. 
+    - Additionally, it renders any notes in Discord syntax on submit/view patrol.
+- Fixed /bot-info not showing the bot's emoji.
+    - Additionally, it is now able to calculate users.
+- Fixed /attended, /lastactive, /time, and /regstats from an interaction failed fall back.
+- Fixed /patrol new, command would partly execute before quietly failing the interaction.
+- Fixed /progress showing percentages to other branches.
+
+### Bot Commands
+
+- /add-alias (new)
+- /add-money (new)
+- /add-points (new)
+- /attended (fixed)
+- /balance (new)
+- /bot-info (fixed)
+- /break (new)
+- /checkname (new)
+- /documentation (new)
+- /enlist (updated)
+- /remove-alias (new)
+- /economy (new)
+- /give-money (new)
+- /hiatus (new)
+- /hosted (new)
+- /lastactive (fixed)
+- /member-info (new)
+- /patrol new (fixed, updated)
+- /progress (fixed)
+- /regstats (fixed)
+- /remove-alias (new)
+- /remove-money (new)
+- /remove-points (new)
+- /roll (new)
+- /support (new)
+- /time (fixed)
