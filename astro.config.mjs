@@ -70,6 +70,7 @@ export default defineConfig({
                     items: [
                         { label: 'Changelog', link: '/changelogs' },
                         { label: 'Blog', link: '/blog' },
+                        { label: 'Status', link:'https://status.regpoints.fr/'}
                     ],
                 },
             ],
