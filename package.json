@@ -20,6 +20,6 @@
     "starlight-theme-obsidian": "^0.4.1",
     "starlight-theme-rapide": "^0.5.2",
     "unplugin-icons": "^23.0.1",
-    "vercel": "^54.9.0"
+    "vercel": "^54.14.0"
   }
 }
